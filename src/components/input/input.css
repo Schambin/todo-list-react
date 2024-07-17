@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.addTaskInput {
+  display: flex;
+  flex: 1;
+  padding: 1rem;
+  color: var(--gray-300);
+  outline: none;
+  border: none;
+  background-color: var(--gray-500);
+  border-radius: 8px;
+
+  line-height: 140%;
+  border: 1px solid var(--gray-700);
+}
+
+.addTaskInput::placeholder {
+  color: var(--gray-300);
+}
+
+.addTaskInput:focus {
+  border-color: var(--purple-dark);
+}
