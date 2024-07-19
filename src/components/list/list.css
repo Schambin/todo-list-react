@@ -1,4 +1,7 @@
 .tasksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   margin-top: 1.5rem;
 }
 
@@ -13,40 +16,4 @@
 
 .noTasksDec {
   font-weight: bold;
-}
-
-.taskItem {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  padding: 1rem;
-
-  text-align: left;
-
-  background-color: var(--gray-500);
-  border-radius: 8px;
-}
-
-.taskItem p {
-  flex: 1;
-}
-
-.deleteButton {
-  color: var(--gray-300);
-  background: none;
-  border: none;
-}
-
-.deleteButton:hover {
-  color: var(--danger);
-  cursor: pointer;
-}
-
-input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  padding: 0.4rem;
-  border: 2px solid var(--blue);
-  border-radius: 50%;
 }
