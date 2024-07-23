@@ -1,12 +1,14 @@
-import { Trash } from '@phosphor-icons/react'
-import './taskItem.css'
+import { Trash } from '@phosphor-icons/react';
 
-export function TaskItem() {
+import './taskItem.css';
+
+
+export function TaskItem({ task }) {
     return (
         <div className="taskItem">
-            <input type="checkbox"/>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, </p>
-            <button className="deleteButton"><Trash size={20}/></button>
+            <input type="checkbox" />
+            <p>{task}</p>
+            <button className="deleteButton"><Trash size={20} /></button>
         </div>
-    )
+    );
 }
