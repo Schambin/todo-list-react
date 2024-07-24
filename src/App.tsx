@@ -9,9 +9,14 @@ import './main.css'
 export function App() {
   const [tasks, setTasks] = useState([]);
 
-  const addTask = (newTask) => {
+  function addTask(newTask) {
     setTasks([...tasks, newTask]);
-  };
+  }
+
+  function deleteTask(index) {
+    const updatedTasks = tasks.filter((_, taskIndex) => taskIndex !== index);
+    setTasks(updatedTasks);
+  }
 
   return (
     <>
@@ -23,11 +28,14 @@ export function App() {
 
         <div className='tasks'>
           <p>Tarefas Criadas <span>{tasks.length}</span></p>
-          <p>Concluídas <span>{0}</span></p>
+          <p>Concluídas <span>{0} de {tasks.length}</span></p>
         </div>
 
         <div>
-          <TasksList tasks={tasks}/>
+          <TasksList 
+            tasks={tasks} 
+            deleteTask={deleteTask}
+          />
         </div>
       </div>
 

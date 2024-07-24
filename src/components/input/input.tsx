@@ -3,7 +3,6 @@ import { PlusCircle } from '@phosphor-icons/react'
 
 import './input.css'
 
-
 export function AddTask({ addTask }) {
     const [taskInput, setTaskInput] = useState('');
 
