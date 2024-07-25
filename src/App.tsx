@@ -5,11 +5,18 @@ import { TasksList } from './components/list/list';
 
 import './main.css';
 
-export function App() {
-  const [tasks, setTasks] = useState([]);
+interface Task {
+  id: number;
+  text: string;
+  completed: boolean;
+}
 
-  function addTask(newTask) {
-    const newTaskObject = {
+
+export function App() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  function addTask(newTask: string) {
+    const newTaskObject: Task = {
       id: Date.now(), // Utiliza a data atual como identificador único
       text: newTask,
       completed: false
@@ -17,12 +24,12 @@ export function App() {
     setTasks([...tasks, newTaskObject]);
   }
 
-  function deleteTask(id) {
+  function deleteTask(id: number) {
     const updatedTasks = tasks.filter(task => task.id !== id);
     setTasks(updatedTasks);
   }
 
-  function toggleTaskCompletion(id) {
+  function toggleTaskCompletion(id: number) {
     const updatedTasks = tasks.map(task => {
       if (task.id === id) {
         return { ...task, completed: !task.completed };
