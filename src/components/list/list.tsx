@@ -2,7 +2,7 @@ import './list.css';
 import { TaskItem } from '../taskItem/taskItem';
 import { ClipboardText } from '@phosphor-icons/react';
 
-export function TasksList({ tasks, deleteTask }) {    
+export function TasksList({ tasks, deleteTask, toggleTaskCompletion }) {    
     return (
         <div className='tasksContainer'>
             {tasks.length === 0 ? (
@@ -12,12 +12,12 @@ export function TasksList({ tasks, deleteTask }) {
                     <p>Crie tarefas e organize seus itens a fazer</p>
                 </div>
             ) : (
-                tasks.map((task, index) => (
+                tasks.map(task => (
                     <TaskItem 
-                        key={index} 
-                        task={task}
-                        index={index}
-                        deleteTask={deleteTask}
+                        key={task.id} 
+                        task={task} 
+                        deleteTask={deleteTask} 
+                        toggleTaskCompletion={toggleTaskCompletion} 
                     />
                 ))
             )}
