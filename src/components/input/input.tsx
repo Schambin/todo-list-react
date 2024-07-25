@@ -3,7 +3,11 @@ import { PlusCircle } from '@phosphor-icons/react'
 
 import './input.css'
 
-export function AddTask({ addTask }) {
+interface AddTaskProps {
+    addTask: (task: string) => void;
+}
+
+export function AddTask({ addTask }: AddTaskProps) {
     const [taskInput, setTaskInput] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {

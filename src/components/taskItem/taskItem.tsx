@@ -1,7 +1,14 @@
 import './taskItem.css';
 import { Trash } from '@phosphor-icons/react';
+import { Task } from '../../App'
 
-export function TaskItem({ task, deleteTask, toggleTaskCompletion }) {
+interface TaskItemProps {
+    task: Task;
+    deleteTask: (id: number) => void;
+    toggleTaskCompletion: (id: number) => void;
+}
+
+export function TaskItem({ task, deleteTask, toggleTaskCompletion }: TaskItemProps ){
     return (
         <div className="taskItem">
             <input 

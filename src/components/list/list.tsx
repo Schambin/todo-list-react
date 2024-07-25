@@ -2,7 +2,19 @@ import './list.css';
 import { TaskItem } from '../taskItem/taskItem';
 import { ClipboardText } from '@phosphor-icons/react';
 
-export function TasksList({ tasks, deleteTask, toggleTaskCompletion }) {    
+interface Task {
+    id: number;
+    text: string;
+    completed: boolean;
+  }
+  
+  interface TasksListProps {
+    tasks: Task[];
+    deleteTask: (id: number) => void;
+    toggleTaskCompletion: (id: number) => void;
+  }
+
+export function TasksList({ tasks, deleteTask, toggleTaskCompletion }: TasksListProps) {    
     return (
         <div className='tasksContainer'>
             {tasks.length === 0 ? (

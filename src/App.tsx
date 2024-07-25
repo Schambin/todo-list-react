@@ -5,12 +5,11 @@ import { TasksList } from './components/list/list';
 
 import './main.css';
 
-interface Task {
+export interface Task {
   id: number;
   text: string;
   completed: boolean;
 }
-
 
 export function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
