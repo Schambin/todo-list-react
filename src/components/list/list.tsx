@@ -21,7 +21,7 @@ export function TasksList({ tasks, deleteTask, toggleTaskCompletion }: TasksList
                 <div className='withoutTasksContainer'>
                     <ClipboardText size={56} />
                     <p className='noTasksDec'>Você ainda não tem tarefas cadastradas</p>
-                    <p>Crie tarefas e organize seus itens a fazer</p>
+                    <p className='noTasksDec'>Crie tarefas e organize seus itens a fazer</p>
                 </div>
             ) : (
                 tasks.map(task => (
