@@ -1,6 +1,7 @@
 .taskItem {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
 
   padding: 1rem;
@@ -11,8 +12,9 @@
   border-radius: 8px;
 }
 
-.taskItem label {
-  flex: 1;
+.checkNText {
+  display: flex;
+  gap: 0.75rem;
 }
 
 .deleteButton {
@@ -65,7 +67,29 @@ input[type="checkbox"]:checked:hover {
   background-color: var(--purple);
 }
 
+@keyframes label {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
 input[type="checkbox"]:checked + label {
+  position: relative;
   color: var(--gray-300);
-  text-decoration-line: line-through;
+}
+input[type="checkbox"]:checked + label::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gray-300);
+  animation-name: label;
+  animation-duration: 0.1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }

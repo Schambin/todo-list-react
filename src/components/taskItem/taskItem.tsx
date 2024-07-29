@@ -11,14 +11,16 @@ interface TaskItemProps {
 export function TaskItem({ task, deleteTask, toggleTaskCompletion }: TaskItemProps ){
     return (
         <div className="taskItem">
-            <input 
-                type="checkbox" 
-                checked={task.completed}
-                onChange={() => toggleTaskCompletion(task.id)} 
-            />
-            <label style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
-                {task.text}
-            </label>
+            <div className='checkNText'>
+                <input
+                    type="checkbox"
+                    checked={task.completed}
+                    onChange={() => toggleTaskCompletion(task.id)}
+                />
+                <label>
+                    {task.text}
+                </label>
+            </div>
             <button className="deleteButton" onClick={() => deleteTask(task.id)}>
                 <Trash size={20} />
             </button>
