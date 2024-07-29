@@ -23,6 +23,7 @@ export function AddTask({ addTask }: AddTaskProps) {
                 className='addTaskInput' 
                 type="text" 
                 placeholder='Adicione uma nova tarefa'
+                maxLength={68}
                 value={taskInput}
                 onChange={(e) => setTaskInput(e.target.value)}
             />
