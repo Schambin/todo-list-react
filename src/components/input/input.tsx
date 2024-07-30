@@ -12,7 +12,7 @@ export function AddTask({ addTask }: AddTaskProps) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (taskInput.trim() === '') return;  // Verifica se o input não está vazio
+        if (taskInput.trim() === '') return;
         addTask(taskInput);
         setTaskInput('');
     };

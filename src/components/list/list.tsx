@@ -1,18 +1,19 @@
-import './list.css';
 import { TaskItem } from '../taskItem/taskItem';
 import { ClipboardText } from '@phosphor-icons/react';
+
+import './list.css';
 
 interface Task {
     id: number;
     text: string;
     completed: boolean;
-  }
-  
-  interface TasksListProps {
+}
+
+interface TasksListProps {
     tasks: Task[];
     deleteTask: (id: number) => void;
     toggleTaskCompletion: (id: number) => void;
-  }
+}
 
 export function TasksList({ tasks, deleteTask, toggleTaskCompletion }: TasksListProps) {    
     return (

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Header } from './components/header/header';
 import { AddTask } from './components/input/input';
 import { TasksList } from './components/list/list';
@@ -12,17 +12,24 @@ export interface Task {
 }
 
 export function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const savedTasks = localStorage.getItem('tasks');
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
 
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+  
   function addTask(newTask: string) {
     const newTaskObject: Task = {
-      id: Date.now(), // Utiliza a data atual como identificador único
+      id: Date.now(),
       text: newTask,
       completed: false
     };
     setTasks([...tasks, newTaskObject]);
   }
-
+  
   function deleteTask(id: number) {
     const updatedTasks = tasks.filter(task => task.id !== id);
     setTasks(updatedTasks);
